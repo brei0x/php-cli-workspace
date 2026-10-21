@@ -1,0 +1,32 @@
+# ── AI / Claude Code ──────────────────────────────────────────────────────────
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/agent-memory-local/
+## Optional: keep auto-managed agent memory entirely local instead of shared
+# .claude/agent-memory/
+## Optional: keep human-curated shared logs local
+# .claude/memory/
+## Superpowers (Obra/community add-on)
+.superpowers/
+docs/superpowers/
+
+# ── Secrets ───────────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# ── Temp / logs ───────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
+*.old
+*.orig
+.cache/
+.tmp/
+.temp/
+
+# ── OS ──────────────────────────────────────────────────────────────────────────
+.DS_Store
