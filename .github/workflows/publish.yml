@@ -94,6 +94,8 @@ jobs:
       packages: write
     strategy:
       fail-fast: false
+      # One at a time in matrix order: the package page shows the last pushed tag, so LATEST_PHP must stay last.
+      max-parallel: 1
       matrix:
         php: ["8.3", "8.4", "8.5"]
 
