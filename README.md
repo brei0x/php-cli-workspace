@@ -39,18 +39,32 @@ docker run --rm -it -e XDEBUG_MODE=profile -v $(pwd):/app ghcr.io/brei0x/php-cli
 
 Default settings: `client_host=host.docker.internal`, `client_port=9003`, `idekey=PHPSTORM`.
 
-### JetBrains integration (PHPStorm / IntelliJ IDEA + PHP plugin)
+### JetBrains integration (PhpStorm / IntelliJ IDEA + PHP plugin)
 
-The setup is identical in both IDEs — they share the same PHP plugin platform.
+Both IDEs share the same PHP plugin, so the setup is identical.
 
-1. **Settings → PHP → CLI Interpreter → +** → choose **Docker**, select `ghcr.io/brei0x/php-cli-workspace`.
-2. Set the path mapping: `/app` → your local project root.
-3. In your run/debug configuration, add `XDEBUG_MODE=debug` as an environment variable.
-4. Start the debugger listener (port 9003 is the default — no change needed).
+1. **Interpreter**: Settings → PHP → CLI Interpreter → **…** → **+** → From Docker, image `ghcr.io/brei0x/php-cli-workspace:latest`. Keep the default container volume (project root → `/opt/project`). Optional configuration options: `-dmemory_limit=512M`.
+2. **Composer**: Settings → PHP → Composer → Execution: **Remote Interpreter**. Then use Tools → Composer → Install, or the links above `composer.json`.
+3. **Commands**: Settings → Tools → PHP Command Line Tool Support → **+**, remote interpreter:
+
+   | Tool                                   | Path                       | Alias |
+   |----------------------------------------|----------------------------|-------|
+   | Symfony                                | `/opt/project/bin/console` | `s`   |
+   | Composer (composer.phar or php script) | `/usr/local/bin/composer`  | `c`   |
+
+   Run them from Tools → Run Command… (`Ctrl+Shift+X`): `s about`, `c install`, `c require symfony/mailer --dev`. `Process finished with exit code 0` means success.
+4. **Debugging**: in a run/debug configuration, set `XDEBUG_MODE=debug` and start listening on port 9003 (default).
+
+Notes:
+
+- Use a real Xdebug mode (`debug`, `profile`…), never `on`: PHP reads it as `1`, which Xdebug rejects.
+- `bin/console about` shows `Xdebug true` as soon as the extension is loaded, even with mode `off`.
+- Each command runs in a fresh container: add `--network <name>` to the interpreter's Docker container options to reach a database or other services.
+- The IDE's built-in Terminal runs on your machine, not in the container: aliases `s` and `c` do not exist there.
 
 ## Updating the image
 
-If you already have the image pulled, re-pull to get the latest version — Docker only downloads changed layers:
+If you already have the image pulled, re-pull to get the latest version (Docker only downloads changed layers):
 
 ```bash
 docker pull ghcr.io/brei0x/php-cli-workspace:latest
