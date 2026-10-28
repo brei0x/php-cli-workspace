@@ -33,9 +33,9 @@ jobs:
         arch: [arm64, amd64]
         include: # each platform builds natively: no QEMU, the extensions compile at full speed
           - arch: arm64
-            runner: ubuntu-24.04-arm
+            runner: ubuntu-26.04-arm
           - arch: amd64
-            runner: ubuntu-24.04
+            runner: ubuntu-26.04
 
     steps:
       - name: Checkout
@@ -94,6 +94,8 @@ jobs:
       packages: write
     strategy:
       fail-fast: false
+      # One at a time in matrix order: the package page shows the last pushed tag, so LATEST_PHP must stay last.
+      max-parallel: 1
       matrix:
         php: ["8.3", "8.4", "8.5"]
 
