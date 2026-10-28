@@ -33,9 +33,9 @@ jobs:
         arch: [arm64, amd64]
         include: # each platform builds natively: no QEMU, the extensions compile at full speed
           - arch: arm64
-            runner: ubuntu-24.04-arm
+            runner: ubuntu-26.04-arm
           - arch: amd64
-            runner: ubuntu-24.04
+            runner: ubuntu-26.04
 
     steps:
       - name: Checkout
