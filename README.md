@@ -52,7 +52,8 @@ Both IDEs share the same PHP plugin, so the setup is identical.
    | Symfony                                | `/opt/project/bin/console` | `s`   |
    | Composer (composer.phar or php script) | `/usr/local/bin/composer`  | `c`   |
 
-   Run them from Tools → Run Command… (`Ctrl+Shift+X`): `s about`, `c install`, `c require symfony/mailer --dev`. `Process finished with exit code 0` means success.
+   Run them from Tools → Run Command… (`Ctrl+Shift+X`): `s about`, `c -d /opt/project install`, `c -d /opt/project require symfony/mailer --dev`. `Process finished with exit code 0` means success.
+   The IDE runs a tool from its script's directory, so `c` starts in `/usr/local/bin`: `-d /opt/project` points Composer at the project, or use step 2 instead.
 4. **Debugging**: in a run/debug configuration, set `XDEBUG_MODE=debug` and start listening on port 9003 (default).
 
 Notes:
