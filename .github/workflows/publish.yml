@@ -150,7 +150,7 @@ jobs:
   release:
     if: github.event_name == 'push'
     needs: merge
-    uses: tekalib/.workflows/.github/workflows/release.yml@1494e487e05e771c4103be2ba30ce1716dde519c # v1.1.0
+    uses: tekalib/.workflows/.github/workflows/release.yml@79652356f97a6498d41d9453be523099e53a7b93 # v1.2.0
     permissions:
       contents: write
     with:
