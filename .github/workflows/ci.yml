@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   build:
-    name: Build PHP ${{ matrix.php }} on ${{ matrix.arch }} and list its extensions
+    name: Build (PHP ${{ matrix.php }} · ${{ matrix.arch }} · extensions)
     runs-on: ${{ matrix.runner }}
     strategy:
       fail-fast: false
@@ -38,3 +38,14 @@ jobs:
           tags: php-cli-workspace:ci
 
       - run: docker run --rm php-cli-workspace:ci php -m
+
+  # The one check Trunk Merge Flow requires, same name everywhere. always(): a job skipped after a
+  # failed need reports success. Pull requests only: no ruleset reads it on a push.
+  ci-passed:
+    name: CI passed
+    needs: [build]
+    if: ${{ always() && github.event_name == 'pull_request' }}
+    runs-on: ubuntu-slim
+    steps:
+      - if: contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+        run: exit 1
