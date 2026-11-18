@@ -60,7 +60,3 @@ One branch per task (`feat/…`, `fix/…`, `chore/…`), Conventional Commits, 
 ```bash
 docker build -t php-cli-workspace . && docker run --rm php-cli-workspace php -m
 ```
-
-## License
-
-[MIT](LICENSE). The image also ships PHP, Debian packages and Composer under their own licenses.
