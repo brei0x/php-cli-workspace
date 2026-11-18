@@ -6,7 +6,10 @@ PHP CLI Docker image for Symfony development, published for **PHP 8.3, 8.4 and 8
   <a href="https://github.com/brei0x/php-cli-workspace/actions/workflows/ci.yml"><img src="https://github.com/brei0x/php-cli-workspace/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
   <a href="https://github.com/brei0x/php-cli-workspace/actions/workflows/publish.yml"><img src="https://github.com/brei0x/php-cli-workspace/actions/workflows/publish.yml/badge.svg?branch=main" alt="Publish"></a>
   <a href="https://github.com/brei0x/php-cli-workspace/releases/latest"><img src="https://img.shields.io/github/v/release/brei0x/php-cli-workspace?sort=semver" alt="Latest release"></a>
+  <a href="https://github.com/brei0x/php-cli-workspace/blob/main/LICENSE"><img src="https://img.shields.io/github/license/brei0x/php-cli-workspace" alt="License"></a>
 </p>
+
+---
 
 **Stack**: Docker · PHP on Debian Trixie (`php:*-cli-trixie`) · Composer 2 · Xdebug 3 · GitHub Container Registry · GitHub Actions
 
@@ -60,7 +63,3 @@ One branch per task (`feat/…`, `fix/…`, `chore/…`), Conventional Commits, 
 ```bash
 docker build -t php-cli-workspace . && docker run --rm php-cli-workspace php -m
 ```
-
-## License
-
-[MIT](LICENSE). The image also ships PHP, Debian packages and Composer under their own licenses.
