@@ -2,7 +2,11 @@
 
 PHP CLI Docker image for Symfony development, published for **PHP 8.3, 8.4 and 8.5** on **`linux/arm64` and `linux/amd64`** (Docker pulls only the platform matching your machine).
 
-![CI](https://github.com/brei0x/php-cli-workspace/actions/workflows/ci.yml/badge.svg) ![Publish](https://github.com/brei0x/php-cli-workspace/actions/workflows/publish.yml/badge.svg)
+<p align="center">
+  <a href="https://github.com/brei0x/php-cli-workspace/actions/workflows/ci.yml"><img src="https://github.com/brei0x/php-cli-workspace/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
+  <a href="https://github.com/brei0x/php-cli-workspace/actions/workflows/publish.yml"><img src="https://github.com/brei0x/php-cli-workspace/actions/workflows/publish.yml/badge.svg?branch=main" alt="Publish"></a>
+  <a href="https://github.com/brei0x/php-cli-workspace/releases/latest"><img src="https://img.shields.io/github/v/release/brei0x/php-cli-workspace?sort=semver" alt="Latest release"></a>
+</p>
 
 **Stack**: Docker · PHP on Debian Trixie (`php:*-cli-trixie`) · Composer 2 · Xdebug 3 · GitHub Container Registry · GitHub Actions
 
