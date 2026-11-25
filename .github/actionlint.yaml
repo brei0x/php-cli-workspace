@@ -1,0 +1,6 @@
+# actionlint configuration. Its bundled runner list predates the ubuntu-26.04 images, which
+# GitHub hosts: drop these labels once actionlint knows them.
+self-hosted-runner:
+  labels:
+    - ubuntu-26.04
+    - ubuntu-26.04-arm
