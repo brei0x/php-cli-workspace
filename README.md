@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/banner.webp" alt="php-cli-workspace banner: a terminal running the image, showing PHP 8.5.13 with Xdebug 3.5.3 and Composer 2.11.3" width="100%">
+</p>
+
 # php-cli-workspace
 
 PHP CLI Docker image for Symfony development, published for **PHP 8.3, 8.4 and 8.5** on **`linux/arm64` and `linux/amd64`** (Docker pulls only the platform matching your machine).
